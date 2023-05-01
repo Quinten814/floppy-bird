@@ -10,4 +10,6 @@ get judged with scores and grades and try to get the highest and final grade - g
 
 go beat the wr idk and maybe speedrun the game (no speedrun.com page yet)
 
-now go on flapper, go f**k those sh**ty pipes and stuff
+watch out for the *bar of death*®
+
+now go and Vector2.up those fricking pipes
