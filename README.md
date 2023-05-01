@@ -12,4 +12,8 @@ go beat the wr idk and maybe speedrun the game (no speedrun.com page yet)
 
 watch out for the *bar of death*®
 
-now go and Vector2.up those fricking pipes
+current releases:
+
+https://img.shields.io/badge/stable-v1.0.0-brightgreen
+
+https://img.shields.io/badge/experimental-vt1.0.0-yellow
