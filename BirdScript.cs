@@ -23,10 +23,31 @@ public class BirdScript : MonoBehaviour
     public ParticleSystem particle;
     public ParticleSystem death;
     public TextMeshProUGUI globalText;
+    public Sprite birdsprite1;
+    public Sprite birdsprite2;
+    public Sprite birdsprite3;
+    public Sprite birdsprite4;
     public async void LoadSomeData()
     {
         Dictionary<string, string> savedData = await CloudSaveService.Instance.Data.LoadAsync(new HashSet<string> { "key" });
         logic.GetComponent<LogicScript>().maxScore = int.Parse(savedData["key"]);
+        savedData = await CloudSaveService.Instance.Data.LoadAsync(new HashSet<string> { "skin" });
+        if (savedData["skin"] == "red")
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = birdsprite1;
+        }
+        else if (savedData["skin"] == "blue")
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = birdsprite3;
+        }
+        else if (savedData["skin"] == "penguin")
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = birdsprite4;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = birdsprite2;
+        }
     }
     public void getScore()
     {
@@ -108,6 +129,7 @@ public class BirdScript : MonoBehaviour
                 yourmom.transform.localScale = new Vector3(1, -1, 1);
                 mana -= 100;
                 birdrigidbody.velocity = Vector2.down * duckPower * 3 + Vector2.right * duckPower / 3;
+                particle.Play();
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) && mana < 100)
             {
@@ -115,7 +137,7 @@ public class BirdScript : MonoBehaviour
             }
             if (manaTime >= 1)
             {
-                if (mana <= 200)
+                if (mana < 200)
                 {
                     mana += 1;
                 }
@@ -142,9 +164,9 @@ public class BirdScript : MonoBehaviour
             logic.GetComponent<LogicScript>().gameOver();
             death.Play();
             i = 1;
+            data();
             sendScore(logic.GetComponent<LogicScript>().playerScore);
             getScore();
-            data();
         }
     }
 }
