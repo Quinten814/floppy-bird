@@ -15,17 +15,21 @@ public class LogicScript : MonoBehaviour
     public GameObject bird;
     public int i = 0;
     public Text manaText;
+    public float newmovespeed;
 
     void grandmaster()
     {
         grandflapper.SetActive(true);
         bird.GetComponent<BirdScript>().isBirdAlive = false;
+    }
+    private void Start()
+    {
         bonusText.text = "space = jump\nlshift = duck\nup arrow = fly\ndown arrow = dive";
     }
-
     // Update is called once per frame
     void Update()
     {
+        newmovespeed += 0.0001f;
         if (bird.GetComponent<BirdScript>().isBirdAlive == true)
         {
             manaText.text = "mana: " + bird.GetComponent<BirdScript>().mana.ToString();
@@ -34,72 +38,44 @@ public class LogicScript : MonoBehaviour
                 bonusText.text = "COOL!! \n +10000 POINTS!";
                 playerScore = playerScore + 10000;
             }
-            playerScore = playerScore + (int)Time.time;
-            if (playerScore <= 99999)
+            playerScore = playerScore += 1;
+            if (playerScore <= 9999)
             {
                 scoreText.text = "points: " + playerScore.ToString() + "\ngrade: F";
             }
-            if (playerScore >= 100000 && playerScore <= 199999)
+            if (playerScore >= 10000 && playerScore <= 19999)
             {
                 scoreText.text = "points: " + playerScore.ToString() + "\ngrade: D";
             }
-            if (playerScore >= 200000 && playerScore <= 499999)
+            if (playerScore >= 20000 && playerScore <= 49999)
             {
                 scoreText.text = "points: " + playerScore.ToString() +"\ngrade: C";
             }
-            if (playerScore >= 500000 && playerScore <= 999999)
+            if (playerScore >= 50000 && playerScore <= 99999)
             {
                 scoreText.text = "points: " + playerScore.ToString() +"\ngrade: B";
             }
-            if (playerScore >= 1000000 && playerScore <= 9999999)
+            if (playerScore >= 100000 && playerScore <= 999999)
             {
                 scoreText.text = "points: ?????? \ngrade: A" ;
             }
-            if (playerScore >= 10000000 && playerScore <= 99999999)
+            if (playerScore >= 1000000 && playerScore <= 9999999)
             {
                 scoreText.text = "points: " + playerScore.ToString() + "\ngrade: S";
             }
-            if (playerScore >= 100000000 && playerScore <= 999999999)
+            if (playerScore >= 10000000 && playerScore <= 99999999)
             {
                 scoreText.text = "points: " + playerScore.ToString() + "\ngrade: FLAPPER";
             }
-            if (playerScore >= 1000000000)
+            if (playerScore >= 100000000)
             {
                 scoreText.text = "points: " + playerScore.ToString() + "\ngrade: GF";
                 grandmaster();
             }
         } else {
-            if (playerScore <= 99999)
-            {
-                scoreText.text = "points: " + playerScore.ToString() + "\ngrade: F";
-            }
-            if (playerScore >= 100000 && playerScore <= 199999)
-            {
-                scoreText.text = "points: " + playerScore.ToString() + "\ngrade: D";
-            }
-            if (playerScore >= 200000 && playerScore <= 499999)
-            {
-                scoreText.text = "points: " + playerScore.ToString() +"\ngrade: C";
-            }
-            if (playerScore >= 500000 && playerScore <= 999999)
-            {
-                scoreText.text = "points: " + playerScore.ToString() +"\ngrade: B";
-            }
-            if (playerScore >= 1000000 && playerScore <= 9999999)
+            if (playerScore >= 100000 && playerScore <= 999999)
             {
                 scoreText.text = "points: " + playerScore.ToString() + "\ngrade: A" ;
-            }
-            if (playerScore >= 10000000 && playerScore <= 99999999)
-            {
-                scoreText.text = "points: " + playerScore.ToString() + "\ngrade: S";
-            }
-            if (playerScore >= 100000000 && playerScore <= 999999999)
-            {
-                scoreText.text = "points: " + playerScore.ToString() + "\ngrade: FLAPPER";
-            }
-            if (playerScore >= 1000000000)
-            {
-                scoreText.text = "points: " + playerScore.ToString() + "\ngrade: GF";
             }
         }
     }
