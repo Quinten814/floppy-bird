@@ -16,4 +16,4 @@ current releases:
 
 ![](https://img.shields.io/badge/stable-v1.0.0-brightgreen "")  
 
-![](https://img.shields.io/badge/experimental-vt1.0.0-yellow "")
+![](https://img.shields.io/badge/experimental-vt1.0.1-yellow "")
