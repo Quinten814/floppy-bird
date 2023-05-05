@@ -35,10 +35,10 @@ public class LogicScript : MonoBehaviour
             manaText.text = "mana: " + bird.GetComponent<BirdScript>().mana.ToString();
             if (Input.GetKeyDown(KeyCode.LeftShift) == true)
             {
-                bonusText.text = "COOL!! \n +10000 POINTS!";
-                playerScore = playerScore + 10000;
+                bonusText.text = "COOL!! \n +" + 10000 * bird.GetComponent<BirdScript>().multiplier  +" POINTS!";
+                playerScore = playerScore + 10000 * bird.GetComponent<BirdScript>().multiplier;
             }
-            playerScore = playerScore += 1;
+            playerScore = playerScore + bird.GetComponent<BirdScript>().multiplier;
             if (playerScore <= 9999)
             {
                 scoreText.text = "points: " + playerScore.ToString() + "\ngrade: F";

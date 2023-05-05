@@ -27,6 +27,7 @@ public class BirdScript : MonoBehaviour
     public Sprite birdsprite2;
     public Sprite birdsprite3;
     public Sprite birdsprite4;
+    public int multiplier = 1;
     public async void LoadSomeData()
     {
         Dictionary<string, string> savedData = await CloudSaveService.Instance.Data.LoadAsync(new HashSet<string> { "key" });
@@ -42,7 +43,9 @@ public class BirdScript : MonoBehaviour
         }
         else if (savedData["skin"] == "penguin")
         {
+            multiplier = 2;
             gameObject.GetComponent<SpriteRenderer>().sprite = birdsprite4;
+            birdrigidbody.gravityScale = 2.25f;
         }
         else
         {
