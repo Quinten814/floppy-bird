@@ -12,5 +12,5 @@ go beat the wr idk and maybe speedrun the game (no speedrun.com page yet)
 
 watch out for the *bar of death*®
 
-![Static Badge](https://img.shields.io/badge/now-archived-red?style=plastic&link=https%3A%2F%2Fquinten814.itch.io%2Ffloppybird)
+![Static Badge](https://img.shields.io/badge/now-unarchived_get_back_to_work_quinten!!!-green?style=flat)
 
